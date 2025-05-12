@@ -143,13 +143,12 @@
   },
   {
     "id": "accordion",
-    "repeatable": true,
     "fields": [
       {
-        "component": "text",
-        "valueType": "string",
-        "name": "accordionTitle",
+        "component": "richtext",
+        "name": "label",
         "label": "Accordion Title",
+        "valueType": "string",
         "required": true
       },
       {
