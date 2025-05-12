@@ -136,8 +136,7 @@
           padding: 3.5em 2em 2em;
           font-size: var(--body-font-size-s);
           font-family: var(--body-font-family);
-          text-align: justify;
-          text-justify: newspaper;
+          text-align: justify; 
           hyphens: auto;
 
           p.terms-and-conditions {

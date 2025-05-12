@@ -1,0 +1,26 @@
+{
+  "definitions": [
+    {
+      "title": "Accordion",
+      "id": "accordion",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/section/v1/section",
+            "template": {
+              "jcr:title": "Accordion",
+              "fieldType": "accordion",
+              "fd:viewType": "accordion",
+              "enabled": true,
+              "visible": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+      
+  ],
+  "filters": []
+}
