@@ -83,6 +83,24 @@
       "id": "blocks",
       "components": [
         {
+          "title": "Accordion",
+          "id": "accordion",
+          "plugins": {
+            "xwalk": {
+              "page": {
+                "resourceType": "core/franklin/components/section/v1/section",
+                "template": {
+                  "jcr:title": "Accordion",
+                  "fieldType": "accordion",
+                  "fd:viewType": "accordion",
+                  "enabled": true,
+                  "visible": true
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Cards",
           "id": "cards",
           "plugins": {
@@ -170,24 +188,6 @@
                   "textContent_text": "<h2>Enter a title</h2><p>...and body text here!</p>",
                   "textContent_cta": "/",
                   "textContent_ctaText": "Click me!"
-                }
-              }
-            }
-          }
-        },
-        {
-          "title": "Accordion",
-          "id": "accordion",
-          "plugins": {
-            "xwalk": {
-              "page": {
-                "resourceType": "core/franklin/components/section/v1/section",
-                "template": {
-                  "jcr:title": "Accordion",
-                  "fieldType": "accordion",
-                  "fd:viewType": "accordion",
-                  "enabled": true,
-                  "visible": true
                 }
               }
             }
