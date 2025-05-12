@@ -19,48 +19,30 @@
   "models": [
     {
       "id": "accordion",
-      "fields": [  
+      "fields": [
         {
-          "component": "text",
-          "name": "title",
-          "label": "Title",
-          "valueType": "string"
-        },
-        {
-          "component": "select",
-          "name": "titleType",
-          "label": "Title Type",
-          "valueType": "string",
-          "options": [
+          "component": "group-list",
+          "name": "items",
+          "label": "Accordion Items",
+          "fields": [
             {
-              "name": "h1",
-              "value": "h1"
+              "component": "text",
+              "name": "label",
+              "label": "Accordion Title",
+              "valueType": "string",
+              "required": true
             },
             {
-              "name": "h2",
-              "value": "h2"
-            },
-            {
-              "name": "h3",
-              "value": "h3"
-            },
-            {
-              "name": "h4",
-              "value": "h4"
-            },
-            {
-              "name": "h5",
-              "value": "h5"
-            },
-            {
-              "name": "h6",
-              "value": "h6"
+              "component": "richtext",
+              "name": "body",
+              "label": "Accordion Content",
+              "valueType": "string",
+              "required": true
             }
           ]
-        } 
-           
+        }
       ]
-  }
+    }
   ],
   "filters": []
 }
