@@ -19,22 +19,23 @@
   "models": [
     {
       "id": "accordion", 
-          "fields": [
-            {
-              "component": "text",
-              "name": "label",
-              "label": "Accordion Title",
-              "valueType": "string",
-              "required": true
-            },
-            {
-              "component": "richtext",
-              "name": "body",
-              "label": "Accordion Content",
-              "valueType": "string",
-              "required": true
-            }
-          ]
+         "repeatable": true,
+      "fields": [
+        {
+          "component": "richtext",
+          "name": "label",
+          "label": "Accordion Title",
+          "valueType": "string",
+          "required": true
+        },
+        {
+          "component": "richtext",
+          "name": "body",
+          "label": "Accordion Content",
+          "valueType": "string",
+          "required": true
+        }
+      ]
         } 
   ],
   "filters": []
