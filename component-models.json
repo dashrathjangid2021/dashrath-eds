@@ -145,6 +145,11 @@
     "id": "accordion",
     "fields": [
       {
+        "component": "text",
+        "name": "title",
+        "label": "Title"
+      },
+      {
         "component": "select",
         "name": "titleType",
         "label": "Title Type",
@@ -174,13 +179,6 @@
             "value": "h6"
           }
         ]
-      },
-      {
-        "component": "richtext",
-        "name": "textContent_text",
-        "label": "Text",
-        "valueType": "string",
-        "required": true
       }
     ]
   },
