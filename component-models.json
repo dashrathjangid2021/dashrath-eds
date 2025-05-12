@@ -145,25 +145,18 @@
     "id": "accordion",
     "fields": [
       {
-        "component": "group-list",
-        "name": "items",
-        "label": "Accordion Items",
-        "fields": [
-          {
-            "component": "text",
-            "name": "label",
-            "label": "Accordion Title",
-            "valueType": "string",
-            "required": true
-          },
-          {
-            "component": "richtext",
-            "name": "body",
-            "label": "Accordion Content",
-            "valueType": "string",
-            "required": true
-          }
-        ]
+        "component": "text",
+        "name": "label",
+        "label": "Accordion Title",
+        "valueType": "string",
+        "required": true
+      },
+      {
+        "component": "richtext",
+        "name": "body",
+        "label": "Accordion Content",
+        "valueType": "string",
+        "required": true
       }
     ]
   },

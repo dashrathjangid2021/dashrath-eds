@@ -18,12 +18,7 @@
   ],
   "models": [
     {
-      "id": "accordion",
-      "fields": [
-        {
-          "component": "group-list",
-          "name": "items",
-          "label": "Accordion Items",
+      "id": "accordion", 
           "fields": [
             {
               "component": "text",
@@ -40,9 +35,7 @@
               "required": true
             }
           ]
-        }
-      ]
-    }
+        } 
   ],
   "filters": []
 }
