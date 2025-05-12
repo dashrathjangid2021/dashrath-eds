@@ -104,6 +104,16 @@
       margin: auto;
       max-width: 900px;
 
+      &.side-by-side-left {
+        display: flex;
+        justify-content: flex-start;
+    }
+
+      &.side-by-side-right {
+          display: flex;
+          justify-content: flex-end;
+      }
+
       .image-wrapper {
           all: initial;
           flex: 2;
@@ -152,6 +162,7 @@
           flex-direction: column; /* Stack elements vertically on mobile */
       }
   }
+ 
 }
 
 /** Animations
