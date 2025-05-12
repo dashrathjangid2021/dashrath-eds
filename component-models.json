@@ -146,10 +146,10 @@
     "repeatable": true,
     "fields": [
       {
-        "component": "richtext",
-        "name": "label",
-        "label": "Accordion Title",
+        "component": "text",
         "valueType": "string",
+        "name": "accordionTitle",
+        "label": "Accordion Title",
         "required": true
       },
       {

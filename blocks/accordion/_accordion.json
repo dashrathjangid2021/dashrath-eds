@@ -20,22 +20,22 @@
     {
       "id": "accordion", 
          "repeatable": true,
-      "fields": [
-        {
-          "component": "richtext",
-          "name": "label",
-          "label": "Accordion Title",
-          "valueType": "string",
-          "required": true
-        },
-        {
-          "component": "richtext",
-          "name": "body",
-          "label": "Accordion Content",
-          "valueType": "string",
-          "required": true
-        }
-      ]
+          "fields": [
+            {
+              "component": "text",
+              "valueType": "string",
+              "name": "accordionTitle",
+              "label": "Accordion Title",
+              "required": true
+          },
+            {
+              "component": "richtext",
+              "name": "body",
+              "label": "Accordion Content",
+              "valueType": "string",
+              "required": true
+            }
+          ]
         } 
   ],
   "filters": []
