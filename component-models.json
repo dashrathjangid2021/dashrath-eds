@@ -147,12 +147,14 @@
       {
         "component": "text",
         "name": "title",
-        "label": "Title"
+        "label": "Title",
+        "valueType": "string"
       },
       {
         "component": "select",
         "name": "titleType",
         "label": "Title Type",
+        "valueType": "string",
         "options": [
           {
             "name": "h1",
