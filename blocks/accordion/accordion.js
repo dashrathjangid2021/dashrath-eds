@@ -5,38 +5,48 @@ export default function decorate(block) {
   const rows = Array.from(block.children);
   let hasValidItem = false;
 
-  rows.forEach((row) => {
-    const cells = Array.from(row.children).filter((el) => el.tagName === 'DIV');
+  rows.forEach((row, rowIndex) => {
+    // Only process element nodes
+    if (!(row instanceof HTMLElement)) return;
 
-    if (cells.length >= 2) {
-      const title = cells[0].innerHTML.trim() || '[Missing Title]';
-      const content = cells[1].innerHTML.trim() || '[Missing Content]';
+    // Get direct children (cells)
+    const cells = Array.from(row.children).filter((child) => child instanceof HTMLElement);
 
-      const item = document.createElement('details');
-      item.className = 'accordion-item';
-
-      const header = document.createElement('summary');
-      header.className = 'accordion-header';
-      header.innerHTML = title;
-
-      const body = document.createElement('div');
-      body.className = 'accordion-content';
-      body.innerHTML = content;
-
-      item.append(header, body);
-      accordionContainer.appendChild(item);
-      hasValidItem = true;
+    // Expect at least two cells: title and content
+    if (cells.length < 2) {
+      console.warn(`Row ${rowIndex} skipped: expected at least 2 cells, found ${cells.length}`);
+      return;
     }
+
+    const titleContent = cells[0].innerHTML?.trim() || '[Missing Title]';
+    const bodyContent = cells[1].innerHTML?.trim() || '[Missing Content]';
+
+    const details = document.createElement('details');
+    details.className = 'accordion-item';
+
+    const summary = document.createElement('summary');
+    summary.className = 'accordion-header';
+    summary.innerHTML = titleContent;
+
+    const content = document.createElement('div');
+    content.className = 'accordion-content';
+    content.innerHTML = bodyContent;
+
+    details.append(summary, content);
+    accordionContainer.appendChild(details);
+    hasValidItem = true;
   });
 
   if (hasValidItem) {
     block.innerHTML = '';
     block.appendChild(accordionContainer);
+    console.log('Accordion initialized successfully with', accordionContainer.children.length, 'items.');
   } else {
     const error = document.createElement('div');
     error.className = 'accordion-error';
-    error.textContent = 'No valid accordion items found. Ensure each item has a title and content.';
+    error.textContent = 'No valid accordion items found. Ensure each item has at least a title and content.';
     block.innerHTML = '';
     block.appendChild(error);
+    console.error('Accordion block error: no valid items processed.');
   }
 }
