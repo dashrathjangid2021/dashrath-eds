@@ -1,6 +1,5 @@
 /* Container */
-.accordion-container {
-    max-width: 800px;
+.accordion-container { 
     margin: 0 auto;
     font-family: Arial, sans-serif;
   }
