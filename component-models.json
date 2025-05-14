@@ -142,10 +142,10 @@
     ]
   },
   {
-    "id": "accordion",
+    "id": "accordion-item",
     "fields": [
       {
-        "component": "richtext",
+        "component": "text",
         "name": "label",
         "label": "Accordion Title",
         "valueType": "string",

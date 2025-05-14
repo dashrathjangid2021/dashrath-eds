@@ -83,15 +83,15 @@
       "id": "blocks",
       "components": [
         {
-          "title": "Accordions",
-          "id": "accordions",
+          "title": "Accordion Block",
+          "id": "accordion-block",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block",
                 "template": {
                   "name": "Accordion",
-                  "filter": "accordions"
+                  "filter": "accordion-items"
                 }
               }
             }
@@ -99,14 +99,15 @@
         },
         {
           "title": "Accordion Item",
-          "id": "accordion",
+          "id": "accordion-item",
           "plugins": {
             "xwalk": {
               "page": {
                 "resourceType": "core/franklin/components/block/v1/block/item",
                 "template": {
                   "name": "Accordion Item",
-                  "model": "accordion"
+                  "model": "accordion-item",
+                  "multiple": true
                 }
               }
             }

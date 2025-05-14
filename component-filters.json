@@ -21,9 +21,9 @@
     ]
   },
   {
-    "id": "accordions",
+    "id": "accordion-items",
     "components": [
-      "accordion"
+      "accordion-item"
     ]
   },
   {
