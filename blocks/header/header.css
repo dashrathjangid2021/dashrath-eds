@@ -29,6 +29,7 @@ header nav[aria-expanded='true'] {
   overflow-y: auto;
   min-height: 100dvh;
 }
+
 header .header.block nav { 
   .nav-brand img {
     height: calc(var(--nav-height) * .75);
@@ -65,6 +66,7 @@ header .header.block nav {
     }
   }
 }
+
 @media (width >= 900px) {
   header nav {
     display: flex;

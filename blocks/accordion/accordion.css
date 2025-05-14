@@ -1,59 +1,35 @@
-/* Accordion container */
+/* Container */
 .accordion-container {
-    width: 100%;
     max-width: 800px;
     margin: 0 auto;
     font-family: Arial, sans-serif;
   }
   
-  /* Individual items */
+  /* Item */
   .accordion-item {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
     margin-bottom: 12px;
     overflow: hidden;
     transition: all 0.3s ease;
   }
   
-  /* Header styling */
+  /* Header */
   .accordion-header {
-    padding: 16px 24px;
-    background: #f8f9fa;
-    color: #212529;
+    padding: 16px 20px;
+    background-color: #f1f1f1;
     cursor: pointer;
     font-weight: 600;
-    font-size: 1.1em;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    list-style: none; /* Remove default arrow */
-    transition: background 0.2s ease;
   }
   
   .accordion-header:hover {
-    background: #e9ecef;
+    background-color: #e0e0e0;
   }
   
-  /* Content area */
-  .accordion-content {
-    padding: 0 24px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    background: #fff;
-  }
-  
-  /* Open state */
-  .accordion-item[open] .accordion-header {
-    background: #e9ecef;
-  }
-  
-  .accordion-item[open] .accordion-content {
-    padding: 16px 24px;
-    max-height: 1000px; /* Adjust based on content needs */
-  }
-  
-  /* Chevron icon */
+  /* Chevron Icon */
   .accordion-header::after {
     content: '▸';
     transition: transform 0.3s ease;
@@ -63,19 +39,28 @@
     transform: rotate(90deg);
   }
   
-  /* Error states */
+  /* Content */
+  .accordion-content {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: #fff;
+  }
+  
+  .accordion-item[open] .accordion-content {
+    padding: 16px 20px;
+    max-height: 1000px;
+  }
+  
+  /* Error */
   .accordion-error {
     padding: 16px;
     background: #fff3f3;
     border: 2px solid #ff6b6b;
     color: #dc3545;
     font-weight: bold;
-    border-radius: 4px;
     text-align: center;
+    border-radius: 4px;
   }
   
-  [data-placeholder="[Missing Title]"],
-  [data-placeholder="[Missing Content]"] {
-    color: #6c757d;
-    font-style: italic;
-  }
