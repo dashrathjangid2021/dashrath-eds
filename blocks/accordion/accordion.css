@@ -1,58 +1,81 @@
 /* Accordion container */
 .accordion-container {
+    width: 100%;
     max-width: 800px;
     margin: 0 auto;
     font-family: Arial, sans-serif;
   }
   
-  /* Individual accordion items */
+  /* Individual items */
   .accordion-item {
     border: 1px solid #e0e0e0;
-    margin-bottom: 8px;
-    border-radius: 4px;
+    border-radius: 8px;
+    margin-bottom: 12px;
     overflow: hidden;
     transition: all 0.3s ease;
   }
   
-  .accordion-item[open] {
-    box-shadow: 0 2px 8px #e0e0e0;;
-  }
-  
-  /* Accordion header */
-  .accordion-item-label {
-    padding: 16px 20px;
+  /* Header styling */
+  .accordion-header {
+    padding: 16px 24px;
+    background: #f8f9fa;
+    color: #212529;
     cursor: pointer;
     font-weight: 600;
-    background-color: #f8f8f8;
+    font-size: 1.1em;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    list-style: none; /* Removes default arrow in some browsers */
+    list-style: none; /* Remove default arrow */
+    transition: background 0.2s ease;
   }
   
-  .accordion-item-label:hover {
-    background-color: #f0f0f0;
+  .accordion-header:hover {
+    background: #e9ecef;
   }
   
-  .accordion-item-label::after {
-    content: '+';
-    font-size: 1.2em;
+  /* Content area */
+  .accordion-content {
+    padding: 0 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    background: #fff;
+  }
+  
+  /* Open state */
+  .accordion-item[open] .accordion-header {
+    background: #e9ecef;
+  }
+  
+  .accordion-item[open] .accordion-content {
+    padding: 16px 24px;
+    max-height: 1000px; /* Adjust based on content needs */
+  }
+  
+  /* Chevron icon */
+  .accordion-header::after {
+    content: '▸';
     transition: transform 0.3s ease;
   }
   
-  .accordion-item[open] .accordion-item-label::after {
-    content: '-';
+  .accordion-item[open] .accordion-header::after {
+    transform: rotate(90deg);
   }
   
-  /* Accordion content */
-  .accordion-item-body {
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s ease;
+  /* Error states */
+  .accordion-error {
+    padding: 16px;
+    background: #fff3f3;
+    border: 2px solid #ff6b6b;
+    color: #dc3545;
+    font-weight: bold;
+    border-radius: 4px;
+    text-align: center;
   }
   
-  .accordion-item[open] .accordion-item-body {
-    padding: 16px 20px;
-    max-height: 1000px; /* Adjust based on content needs */
+  [data-placeholder="[Missing Title]"],
+  [data-placeholder="[Missing Content]"] {
+    color: #6c757d;
+    font-style: italic;
   }

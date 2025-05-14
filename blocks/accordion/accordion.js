@@ -1,50 +1,61 @@
 export default function decorate(block) {
-  // Validate block exists
-  if (!block) {
-    console.error('Accordion block not found');
-    return;
-  }
+  // Debug: Log initial block state
+  console.log('Initial block content:', block.innerHTML);
 
+  // Create container
   const accordionContainer = document.createElement('div');
   accordionContainer.className = 'accordion-container';
 
-  // Process each row only if it has proper structure
-  Array.from(block.children).forEach((row) => {
-    try {
-      // Skip if row doesn't have at least 2 cells
-      if (!row.children || row.children.length < 2) {
-        console.warn('Skipping malformed accordion item - missing title or content');
-        return;
-      }
+  // Process each row
+  Array.from(block.children).forEach((row, index) => {
+    console.log(`Processing row ${index}:`, row);
 
-      const details = document.createElement('details');
-      details.className = 'accordion-item';
-
-      // SAFE TITLE HANDLING
-      const summary = document.createElement('summary');
-      summary.className = 'accordion-header';
-      const titleCell = row.children[0];
-      summary.innerHTML = titleCell?.innerHTML || '[Missing Title]'; // Fallback text
-
-      // SAFE CONTENT HANDLING
-      const content = document.createElement('div');
-      content.className = 'accordion-content';
-      const contentCell = row.children[1];
-      content.innerHTML = contentCell?.innerHTML || '[Missing Content]'; // Fallback text
-
-      details.append(summary, content);
-      accordionContainer.appendChild(details);
-    } catch (error) {
-      console.error('Error processing accordion item:', error, row);
+    // Skip if not a valid row
+    if (!row.tagName || row.tagName !== 'DIV') {
+      console.warn(`Skipping invalid row at index ${index}`);
+      return;
     }
+
+    // Get cells - Franklin uses DIVs for cells
+    const cells = Array.from(row.children).filter((child) => child.tagName === 'DIV');
+
+    // Validate we have at least title and content
+    if (cells.length < 2) {
+      console.warn(`Skipping row ${index} - insufficient cells (${cells.length})`);
+      return;
+    }
+
+    // Create accordion item
+    const details = document.createElement('details');
+    details.className = 'accordion-item';
+
+    // Create header from first cell
+    const summary = document.createElement('summary');
+    summary.className = 'accordion-header';
+    summary.innerHTML = cells[0].innerHTML || '[Missing Title]';
+
+    // Create content from second cell
+    const content = document.createElement('div');
+    content.className = 'accordion-content';
+    content.innerHTML = cells[1].innerHTML || '[Missing Content]';
+
+    // Assemble components
+    details.append(summary, content);
+    accordionContainer.appendChild(details);
   });
 
-  // Only replace if we found valid items
-  if (accordionContainer.children.length > 0) {
-    block.innerHTML = '';
-    block.appendChild(accordionContainer);
-  } else {
-    block.innerHTML = '<div class="accordion-error">No valid accordion items found. Please check your content structure.</div>';
-    console.error('No valid accordion items processed');
+  // Final validation
+  if (accordionContainer.children.length === 0) {
+    const errorMsg = document.createElement('div');
+    errorMsg.className = 'accordion-error';
+    errorMsg.textContent = 'No valid accordion items found. Please check your content structure.';
+    block.replaceWith(errorMsg);
+    console.error('No valid accordion items were processed');
+    return;
   }
+
+  // Replace original content
+  block.innerHTML = '';
+  block.appendChild(accordionContainer);
+  console.log('Accordion successfully initialized');
 }
