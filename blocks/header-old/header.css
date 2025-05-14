@@ -29,42 +29,7 @@ header nav[aria-expanded='true'] {
   overflow-y: auto;
   min-height: 100dvh;
 }
-header .header.block nav { 
-  .nav-brand img {
-    height: calc(var(--nav-height) * .75);
-    width: auto;
-    margin-top: 5px;
-  }
 
-  .nav-sections { 
-    a {
-      text-transform: uppercase;
-      background-color: transparent;
-      color: var(--text-color);
-      font-weight: 500;
-      font-size: var(--body-font-size-s);
-
-      &:hover {
-        background-color: auto;
-      }
-    }
- 
-    .nav-drop {
-      &::after {
-        transform: translateY(-50%) rotate(135deg);
-      }
-
-      &[aria-expanded='true']::after {
-        transform: translateY(50%) rotate(-45deg);
-      }
-
-      & > ul {
-        top: 2rem;
-        left: -1rem;
-       }
-    }
-  }
-}
 @media (width >= 900px) {
   header nav {
     display: flex;
@@ -300,5 +265,4 @@ header nav .nav-sections ul > li > ul > li {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
-}
 }
