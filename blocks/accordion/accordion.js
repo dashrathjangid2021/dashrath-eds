@@ -1,46 +1,50 @@
 export default function decorate(block) {
-  // Create container
+  // Validate block exists
+  if (!block) {
+    console.error('Accordion block not found');
+    return;
+  }
+
   const accordionContainer = document.createElement('div');
   accordionContainer.className = 'accordion-container';
 
-  // Process each row
+  // Process each row only if it has proper structure
   Array.from(block.children).forEach((row) => {
-    // Validate row structure
-    if (!row.children || row.children.length < 2) {
-      console.warn('Invalid accordion item structure', row);
-      return;
+    try {
+      // Skip if row doesn't have at least 2 cells
+      if (!row.children || row.children.length < 2) {
+        console.warn('Skipping malformed accordion item - missing title or content');
+        return;
+      }
+
+      const details = document.createElement('details');
+      details.className = 'accordion-item';
+
+      // SAFE TITLE HANDLING
+      const summary = document.createElement('summary');
+      summary.className = 'accordion-header';
+      const titleCell = row.children[0];
+      summary.innerHTML = titleCell?.innerHTML || '[Missing Title]'; // Fallback text
+
+      // SAFE CONTENT HANDLING
+      const content = document.createElement('div');
+      content.className = 'accordion-content';
+      const contentCell = row.children[1];
+      content.innerHTML = contentCell?.innerHTML || '[Missing Content]'; // Fallback text
+
+      details.append(summary, content);
+      accordionContainer.appendChild(details);
+    } catch (error) {
+      console.error('Error processing accordion item:', error, row);
     }
-
-    // Create accordion item
-    const details = document.createElement('details');
-    details.className = 'accordion-item';
-
-    // Create header
-    const summary = document.createElement('summary');
-    summary.className = 'accordion-header';
-
-    // Safely handle title content
-    const titleCell = row.children[0];
-    if (titleCell) {
-      summary.innerHTML = titleCell.innerHTML || '';
-    }
-
-    // Create content area
-    const content = document.createElement('div');
-    content.className = 'accordion-content';
-
-    // Safely handle content
-    const contentCell = row.children[1];
-    if (contentCell) {
-      content.innerHTML = contentCell.innerHTML || '';
-    }
-
-    // Assemble components
-    details.append(summary, content);
-    accordionContainer.appendChild(details);
   });
 
-  // Replace original content
-  block.textContent = '';
-  block.appendChild(accordionContainer);
+  // Only replace if we found valid items
+  if (accordionContainer.children.length > 0) {
+    block.innerHTML = '';
+    block.appendChild(accordionContainer);
+  } else {
+    block.innerHTML = '<div class="accordion-error">No valid accordion items found. Please check your content structure.</div>';
+    console.error('No valid accordion items processed');
+  }
 }
