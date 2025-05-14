@@ -146,17 +146,24 @@
     "fields": [
       {
         "component": "text",
-        "name": "label",
-        "label": "Accordion Title",
+        "name": "title",
+        "label": "Title",
         "valueType": "string",
-        "required": true
+        "required": true,
+        "attributes": {
+          "placeholder": "Enter accordion title"
+        }
       },
       {
         "component": "richtext",
-        "name": "body",
-        "label": "Accordion Content",
+        "name": "content",
+        "label": "Content",
         "valueType": "string",
-        "required": true
+        "required": true,
+        "attributes": {
+          "multiline": true,
+          "placeholder": "Enter accordion content"
+        }
       }
     ]
   },

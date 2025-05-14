@@ -24,7 +24,11 @@
     "id": "accordion-items",
     "components": [
       "accordion-item"
-    ]
+    ],
+    "properties": {
+      "minItems": 1,
+      "maxItems": 20
+    }
   },
   {
     "id": "cards",

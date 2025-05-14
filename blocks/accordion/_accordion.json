@@ -25,7 +25,11 @@
             "template": {
               "name": "Accordion Item",
               "model": "accordion-item",
-              "multiple": true   
+              "multiple": true,
+              "properties": {
+                "section": "content",
+                "isContainer": true
+              }
             }
           }
         }
@@ -38,17 +42,24 @@
       "fields": [
         {
           "component": "text",
-          "name": "label",
-          "label": "Accordion Title",
+          "name": "title",
+          "label": "Title",
           "valueType": "string",
-          "required": true
+          "required": true,
+          "attributes": {
+            "placeholder": "Enter accordion title"
+          }
         },
         {
           "component": "richtext",
-          "name": "body",
-          "label": "Accordion Content",
+          "name": "content",
+          "label": "Content",
           "valueType": "string",
-          "required": true
+          "required": true,
+          "attributes": {
+            "multiline": true,
+            "placeholder": "Enter accordion content"
+          }
         }
       ]
     }
@@ -58,7 +69,17 @@
       "id": "accordion-items",
       "components": [
         "accordion-item"
-      ]
+      ],
+      "properties": {
+        "minItems": 1,
+        "maxItems": 20
+      }
     }
-  ]
+  ],
+  "settings": {
+    "authoring": {
+      "enableMultiSelect": true,
+      "enableDragAndDrop": true
+    }
+  }
 }

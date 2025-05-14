@@ -107,7 +107,11 @@
                 "template": {
                   "name": "Accordion Item",
                   "model": "accordion-item",
-                  "multiple": true
+                  "multiple": true,
+                  "properties": {
+                    "section": "content",
+                    "isContainer": true
+                  }
                 }
               }
             }
