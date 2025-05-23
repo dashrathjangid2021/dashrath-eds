@@ -206,6 +206,74 @@
     ]
   },
   {
+    "id": "customform",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "form-id",
+        "label": "Form Id"
+      },
+      {
+        "component": "aem-content",
+        "valueType": "string",
+        "name": "submit-link",
+        "label": "Submit Link"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "submit-text",
+        "label": "Submit Button text",
+        "value": "Submit form"
+      }
+    ]
+  },
+  {
+    "id": "input",
+    "fields": [
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "id",
+        "label": "Id"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "name",
+        "label": "Name"
+      },
+      {
+        "component": "text",
+        "valueType": "string",
+        "name": "label",
+        "label": "Label"
+      },
+      {
+        "component": "select",
+        "valueType": "string",
+        "name": "type",
+        "label": "Type",
+        "value": "text",
+        "options": [
+          {
+            "name": "text",
+            "value": "text"
+          },
+          {
+            "name": "email",
+            "value": "email"
+          },
+          {
+            "name": "checkbox",
+            "value": "checkbox"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "id": "fragment",
     "fields": [
       {
@@ -237,6 +305,33 @@
         "name": "text",
         "value": "",
         "label": "Text",
+        "valueType": "string"
+      }
+    ]
+  },
+  {
+    "id": "tab",
+    "fields": [
+      {
+        "component": "tab",
+        "label": "Tab 1",
+        "name": "tab1"
+      },
+      {
+        "component": "text-input",
+        "label": "Text 1",
+        "name": "text1",
+        "valueType": "string"
+      },
+      {
+        "component": "tab",
+        "label": "Tab 2",
+        "name": "tab2"
+      },
+      {
+        "component": "text-input",
+        "label": "Text 2",
+        "name": "text2",
         "valueType": "string"
       }
     ]
